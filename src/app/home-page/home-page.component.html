@@ -10,12 +10,13 @@
 
   <div class="col-md-10 offset-md-1">
 
-    <form class="form" novalidate>
+    <div class="form-group">
       <div class="input-group input-group-lg">
         <span class="input-group-addon" id="sizing-addon">Seach GitHub:</span>
         <input type="text" class="form-control"
                [(ngModel)]="query" name="query"
-               aria-describedby="sizing-addon">
+               aria-describedby="sizing-addon"
+               (keyup.enter)="search()">
         <span class="input-group-btn">
           <button class="btn btn-secondary" type="button"
                   (click)="search()">
@@ -23,9 +24,9 @@
           </button>
         </span>
       </div>
+    </div>
 
-      <br>
-    </form>
+    <br>
 
   </div>
 
@@ -38,10 +39,11 @@
           (click)="goToDetail(repo)">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{repo.name}}</h5>
-          <small>url: <i>{{repo.html_url}}</i></small>
+          <small><strong>url:</strong> <i>{{repo.html_url}}</i></small>
+          <!--<small><strong></strong> <i>{{repo.}}</i></small>-->
         </div>
         <p class="mb-1">Owner: <i>{{repo.owner.login}}</i></p>
-        <!--<small>Donec id elit non mi porta.</small>-->
+        <!--<small *ngIf="repo.language">Language: <i>{{repo.language}}</i></small>-->
       </li>
 
     </ul>
