@@ -12,7 +12,7 @@
 
     <div class="form-group">
       <div class="input-group input-group-lg">
-        <span class="input-group-addon" id="sizing-addon">Seach GitHub:</span>
+        <span class="input-group-addon hidden-xs-down" id="sizing-addon">Seach GitHub:</span>
         <input type="text" class="form-control"
                [(ngModel)]="query" name="query"
                aria-describedby="sizing-addon"
@@ -39,11 +39,9 @@
           (click)="goToDetail(repo)">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1"><strong>{{repo.name}}</strong></h5>
-          <small><strong>url:</strong> <i>{{repo.html_url}}</i></small>
-          <!--<small><strong></strong> <i>{{repo.}}</i></small>-->
+          <small class="hidden-xs-down"><strong>url:</strong> <i>{{repo.html_url}}</i></small>
         </div>
         <p class="mb-1">Owner: <i>{{repo.owner.login}}</i></p>
-        <!--<small *ngIf="repo.language">Language: <i>{{repo.language}}</i></small>-->
       </li>
 
     </ul>
