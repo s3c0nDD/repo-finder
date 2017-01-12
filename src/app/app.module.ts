@@ -21,13 +21,17 @@ import { DetailPageComponent } from './detail-page/detail-page.component';
     RouterModule.forRoot([
         {
           path: '',
-          redirectTo: '/home',
+          redirectTo: '/search',
           pathMatch: 'full'
         },
         {
-          path: 'home',
+          path: 'search',
           component: HomePageComponent
         },
+        {
+          path: 'repo/:param',
+          component: DetailPageComponent
+        }
       ])
   ],
   providers: [],

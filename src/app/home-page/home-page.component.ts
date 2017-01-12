@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { RepoService } from "../shared/repo.service";
+
 import { Result, Repo } from "../shared";
 
 @Component({
@@ -14,6 +16,7 @@ export class HomePageComponent implements OnInit {
   result: Result;
 
   constructor(
+    private router: Router,
     private repoService: RepoService
   ) { }
 
@@ -28,7 +31,8 @@ export class HomePageComponent implements OnInit {
   }
 
   private goToDetail(repo: Repo) {
-    alert('Go to detail:' + repo.git_url);
+    let param = repo.owner.login + '-|-' + repo.name;
+    this.router.navigate(['/repo', param ]);
   }
 
 }

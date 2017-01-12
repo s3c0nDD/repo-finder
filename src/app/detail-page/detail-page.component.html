@@ -1,3 +1,50 @@
-<p>
-  detail-page works!
-</p>
+<div class="row" *ngIf="repo">
+  <div class="col-md-10 offset-md-1">
+    <div class="jumbotron">
+      <h1>
+        <a href="https://github.com/{{repo.owner.login}}">{{repo.owner.login}}</a> /
+        <a href="https://github.com/{{repo.owner.login}}/{{repo.name}}">{{repo.name}}</a> repository details</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="repo">
+
+  <div class="col-md-10 offset-md-1">
+
+    <button class="btn btn-secondary btn-md btn-block" (click)="goBack()">
+      Go back to repository finder
+    </button>
+
+    <div class="row" id="details">
+
+      <div class="col-md-10 offset-md-1 col-xs-12 text-center"
+           *ngIf="repo.description" id="description">
+        <h5><strong>Description:</strong> {{repo.description}} </h5>
+      </div>
+
+      <div class="col-md-5 offset-md-1 col-xs-12 text-left">
+
+        <p><strong>Full Name:</strong> {{repo.full_name}}</p>
+        <p><strong>Homepage:</strong> {{repo.homepage}}</p>
+        <p><strong>Language:</strong> {{repo.language}} </p>
+        <p><strong>Created at:</strong> {{repo.created_at | date: 'medium'}} </p>
+
+      </div>
+
+      <div class="col-md-5 offset-md-1 col-xs-12 text-left">
+
+        <p><strong>Forks:</strong> {{repo.forks_count}} </p>
+        <p><strong>Stars:</strong> {{repo.stargazers_count}} </p>
+        <p><strong>Watchers:</strong> {{repo.watchers}} </p>
+        <p><strong>Open Issues: </strong> {{repo.open_issues_count}} </p>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</div>
