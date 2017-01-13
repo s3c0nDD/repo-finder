@@ -26,7 +26,10 @@
       <div class="col-md-5 offset-md-1 col-xs-12 text-left">
 
         <p><strong>Full Name:</strong> {{repo.full_name}}</p>
-        <p><strong>Homepage:</strong> {{repo.homepage}}</p>
+        <p><strong>Homepage:</strong>
+          <span *ngIf="repo.homepage">{{repo.homepage}}</span>
+          <span *ngIf="!repo.homepage">none</span>
+        </p>
         <p><strong>Language:</strong> {{repo.language}} </p>
         <p><strong>Created at:</strong> {{repo.created_at | date: 'medium'}} </p>
 
